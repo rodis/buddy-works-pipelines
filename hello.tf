@@ -3,7 +3,9 @@ resource "null_resource" "default" {
     command = "echo 'Hello World'"
   }
 }
+resource "random_uuid" "uuid" {
+}
 
 output "FAKE_INIT_OUTPUT" {
-  value = "VALUE"
+  value = uuid.result
 }
