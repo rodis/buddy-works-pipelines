@@ -3,9 +3,9 @@ resource "null_resource" "default" {
     command = "echo 'Hello World'"
   }
 }
-resource "random_uuid" "uuid" {
+resource "random_uuid" "test" {
 }
 
 output "FAKE_INIT_OUTPUT" {
-  value = uuid.result
+  value = "${random_uuid.test.result}"
 }
