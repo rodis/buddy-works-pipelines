@@ -3,3 +3,7 @@ resource "null_resource" "default" {
     command = "echo 'Hello World'"
   }
 }
+
+output "FAKE_INIT_OUTPUT" {
+  value = "VALUE"
+}
