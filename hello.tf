@@ -1,15 +1,9 @@
-resource "random_uuid" "test" {
-}
-  
-resource "null_resource" "default" {
+resource "null_resource" "example" {
+  # Using triggers to force execution on every apply
   triggers = {
-    uuid = random_uuid.test.result
+    always_run = timestamp()
   }
   provisioner "local-exec" {
-    command = "echo 'Hello World'"
+    command = "echo This specific command will execute every time during apply as triggers are used"
   }
-}
-
-output "FAKE_INIT_OUTPUT" {
-  value = "${random_uuid.test.result}"
 }
