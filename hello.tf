@@ -1,4 +1,10 @@
+resource "random_uuid" "test" {
+}
+  
 resource "null_resource" "default" {
+  triggers = [
+    random_uuid.test.result
+  ]
   provisioner "local-exec" {
     command = "echo 'Hello World'"
   }
