@@ -7,3 +7,10 @@ resource "null_resource" "example" {
     command = "echo This specific command will execute every time during apply as triggers are used"
   }
 }
+
+resource "random_uuid" "test" {
+}
+
+output "FAKE_INIT_OUTPUT" {
+  value = "${random_uuid.test.result}"
+}
